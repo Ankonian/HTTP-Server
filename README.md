@@ -1,2 +1,3 @@
-# HTTP-Server
-HTTP Server Project created as a school project, still needs polishing
+To run this program, you need two terminal windows, one client one server. On the server terminal, compile and run ./httpserver PORTNUM -l log_name -N num_threads, where PORTNUM can be any port number greater than 1024, log_name can be any name to create a log file, and num_threads is the number of threads you wish the server run on. On the client side run curl localhost:PORTNUM/FILE_NAME for GET command, curl -T FILE_NAME localhost:PORTNUM for PUT, and curl -I http://localhost:PORTNUM/FILE_NAME for HEAD. To utilize the multithreaded server's improved throughput, run multiple requests with a bash script.
+Some limitation users should know, the client side might take longer than usual to respond if transferring a very large file. Server can sometimes hang on multiple PUT requests. Make sure to start the server code with at least a port number otherwise it will seg fault.
+I discussed high-level logic with Joshua Cheung on the implementation of Multithreading and Logging and attempt to fix PUT hanging issue.
